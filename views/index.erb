@@ -3,6 +3,20 @@
     <title>Reward system</title>
   </head>
   <body>
-    <h1>Under construction</h1>
+    <% if error %>
+      <h2>Error occured</h2>
+      <div><%= error %></div>
+    <% end %>
+
+    <% if result %>
+      <h2>Result</h2>
+      <div><%= result %></div>
+    <% end %>
+
+    <h2>New calculation</h2>
+    <form action="/" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Calculate rewards">
+    </form>
   </body>
 </html>
