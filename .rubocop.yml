@@ -1,0 +1,13 @@
+Metrics/LineLength:
+  Max: 160
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Style/EmptyCaseCondition:
+  Enabled: false
+
