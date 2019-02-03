@@ -25,5 +25,14 @@ describe Domain::RecommendationService do
       expect(customer_repository).not_to receive(:add)
       service.recommend(referrer: referrer, referred_name: 'referred')
     end
+
+    specify do
+      referrer = Domain::Customer.new(name: 'referrer')
+
+      allow(customer_repository).to receive(:find_by_name).and_return(nil)
+
+      expect { service.recommend(referrer: referrer, referred_name: '') }.to raise_exception(Domain::InvalidDataError)
+      expect { service.recommend(referrer: referrer, referred_name: nil) }.to raise_exception(Domain::InvalidDataError)
+    end
   end
 end

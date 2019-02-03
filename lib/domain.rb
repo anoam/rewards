@@ -5,4 +5,6 @@ module Domain
   autoload :RecommendationService, 'domain/recommendation_service'
   autoload :CustomerRepository, 'domain/customer_repository'
   autoload :AcceptanceService, 'domain/acceptance_service'
+
+  InvalidDataError = Class.new(StandardError)
 end
