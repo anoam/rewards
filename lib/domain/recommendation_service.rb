@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-#
+
 module Domain
   # Service that represents recommendation process
   class RecommendationService
@@ -22,6 +22,7 @@ module Domain
 
     def build_referred_customer(name, referrer)
       raise InvalidDataError, 'Invalid customer name' if name.nil? || name.empty?
+
       new_customer = Customer.new(name: name, accepted: false)
       new_customer.referrer = referrer
       new_customer

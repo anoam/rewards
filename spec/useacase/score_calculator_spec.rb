@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'usecase'
 
 describe Usecase::ScoreCalculator do
@@ -15,7 +16,6 @@ describe Usecase::ScoreCalculator do
     events = [
       double(customer_name: 'Foo', recommendation?: true, acceptance?: false, extra: 'Bar'),
       double(customer_name: 'Baz', recommendation?: true, acceptance?: false, extra: 'Buzz'),
-
       double(customer_name: 'Fizz', recommendation?: false, acceptance?: true)
     ]
 
@@ -30,7 +30,7 @@ describe Usecase::ScoreCalculator do
   end
 
   specify do
-    events = [double(customer_name: 'Foo', recommendation?: false, acceptance?: false),]
+    events = [double(customer_name: 'Foo', recommendation?: false, acceptance?: false)]
 
     expect { service.process(events) }.to raise_exception(Domain::InvalidDataError)
   end
@@ -38,7 +38,7 @@ describe Usecase::ScoreCalculator do
   specify do
     allow_any_instance_of(Domain::CustomerRepository).to receive(:find_by_name).with('Foo').and_return(nil)
 
-    events = [double(customer_name: 'Foo', recommendation?: false, acceptance?: true),]
+    events = [double(customer_name: 'Foo', recommendation?: false, acceptance?: true)]
 
     expect { service.process(events) }.to raise_exception(Domain::InvalidDataError)
   end

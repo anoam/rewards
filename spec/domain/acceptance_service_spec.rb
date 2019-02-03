@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+
 require 'domain'
 
 describe Domain::AcceptanceService do
-
   describe 'accept' do
     let(:service) { described_class.new }
     specify do

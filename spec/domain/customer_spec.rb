@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'domain'
 
 describe Domain::Customer do
@@ -13,8 +14,8 @@ describe Domain::Customer do
       customer = described_class.new(name: 'Foo', accepted: false)
       confirmed_customer = described_class.new(name: 'Foo', accepted: true)
 
-      expect{ customer.accept }.to change(customer, :accepted?).to(true)
-      expect{ confirmed_customer.accept }.not_to change(customer, :accepted?)
+      expect { customer.accept }.to change(customer, :accepted?).to(true)
+      expect { confirmed_customer.accept }.not_to change(customer, :accepted?)
     end
   end
 
